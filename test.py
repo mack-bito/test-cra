@@ -35,30 +35,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-def divide_numbers(a, b):
-    # Bug 1: Doesn't handle division by zero
-    return a / b
-
-def add_to_list(value, my_list=[]):
-    # Bug 2: Mutable default argument (list) can cause unexpected behavior
-    my_list.append(value)
-    return my_list
-
-def read_file(filename):
-    # Bug 3: Forgetting to close the file (resource leak)
-    f = open(filename, "r")
-    data = f.read()
-    return data
-
-def calculate_area(radius):
-    # Bug 4: Typo in variable name ("redius" instead of "radius")
-    pi = 3.14
-    return pi * redius * redius
-
-# Main execution
-print("Division:", divide_numbers(10, 0))   # Will raise ZeroDivisionError
-print("List 1:", add_to_list(1))            
-print("List 2:", add_to_list(2))            # Reuses same default list unintentionally
-print("File data:", read_file("nonexistent.txt"))  # FileNotFoundError
-print("Area:", calculate_area(5))           # NameError due to typo
-
+##comment 
