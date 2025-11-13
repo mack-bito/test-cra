@@ -1,1 +1,71 @@
-raise divide by zero related issues.
+DevOps & CI/CD Guidelines ✅
+These guidelines help ensure reliable, secure, and efficient software delivery pipelines across environments.
+1. Version Control ✅
+	•	Use Git or a distributed VCS.
+	•	Enforce branch naming conventions (e.g., feature/login, bugfix/api-timeout).
+	•	Protect main branches with pull request reviews and CI checks.
+# Example Git command to create a feature branch
+git checkout -b feature/user-auth
+2. Continuous Integration (CI) ⚠️
+	•	Automate builds and tests on every commit.
+	•	Fail fast: stop pipeline on first critical error.
+	•	Use caching to speed up builds.
+# Sample GitHub Actions CI workflow
+name: CI Pipeline
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+3. Continuous Delivery/Deployment (CD) ✅
+	•	Automate deployment to staging and production.
+	•	Use environment-specific configs and secrets.
+	•	Implement rollback strategies for failed deployments.
+# Example deployment script
+kubectl apply -f deployment.yaml
+4. Infrastructure as Code (IaC) ❌
+	•	Use tools like Terraform, Pulumi, or CloudFormation.
+	•	Store IaC in version control.
+	•	Validate and lint IaC before applying.
+# Terraform example
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+5. Monitoring & Logging ⚠️
+	•	Integrate monitoring tools (e.g., Prometheus, Grafana).
+	•	Centralize logs with ELK or similar stacks.
+	•	Set up alerts for failures and anomalies.
+{
+  "level": "error",
+  "message": "Deployment failed",
+  "timestamp": "2025-10-17T13:15:00Z"
+}
+6. Secrets Management ❌
+	•	Never hardcode secrets in code or config files.
+	•	Use vaults or environment variables.
+	•	Rotate secrets regularly.
+# Example of loading secrets securely
+export DB_PASSWORD=$(vault read -field=password secret/db)
+7. Unicode Support ✅
+	•	Ensure pipelines and tools support Unicode: 中文测试
+	•	Validate encoding across environments.
+	•	Avoid assumptions about character sets in logs and configs.
+8. Pipeline Hygiene ✅
+	•	Keep pipelines fast and focused.
+	•	Remove unused steps and legacy scripts.
+	•	Document pipeline logic and dependencies.
+9. Security Scanning ⚠️
+	•	Integrate SAST and DAST tools.
+	•	Scan dependencies for known vulnerabilities.
+	•	Fail builds on critical security issues.
+10. Documentation & Audit Trails ✅
+	•	Document pipeline steps and deployment processes.
+	•	Maintain audit logs for changes and deployments.
+	•	Use changelogs and release notes for transparency.
+End of Guidelines
