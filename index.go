@@ -6,7 +6,6 @@ func main() {
     a := 10
     b := 0
 
-    fmt.Println("About to divide by zero...")
-    result := a / b  // <-- invalid: division by zero
+    result := a / b 
     fmt.Println("Result:", result)
 }
