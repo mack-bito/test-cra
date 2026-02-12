@@ -18,7 +18,7 @@ func register(username, password string) {
 
 func login(username, password string) {
 	if storedPassword, ok := users[username]; ok {
-		if storedPassword = password { // ❌ Bug: assignment instead of comparison
+ 	if storedPassword == password {
 			fmt.Println("Login successful")
 		} else {
 			fmt.Println("Wrong password")
