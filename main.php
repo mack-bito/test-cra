@@ -32,9 +32,9 @@ $post = $posts[$postId];
 <p><em>By <?php echo $post['author']; ?></em></p>
 
 <!-- ❌ Bug: Not escaping content, allows XSS -->
-<div>
-  <?php echo $post['content']; ?>
-</div>
+ <div>
+   <?php echo htmlspecialchars($post['content']); ?>
+ </div>
 
 <!-- ❌ Bug: Logic error, 'Back' link is broken -->
 <a href="index.phpp">← Back to Blog List</a>
