@@ -25,7 +25,7 @@ def main():
     for n in test_values:
         try:
             print(f"factorial({n}) = {buggy_factorial(n)}")
-        except Exception as e:
+         except NameError as e:
             print(f"factorial({n}) raised an error: {e}")
 
     print("\n=== Fixed Factorial ===")
