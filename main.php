@@ -40,7 +40,7 @@ $post = $posts[$postId];
 <a href="index.phpp">← Back to Blog List</a>
 
 <!-- ❌ Bug: Undefined function -->
-<?php displayComments(); ?>
+
 
 </body>
 </html>
