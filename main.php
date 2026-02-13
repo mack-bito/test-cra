@@ -14,8 +14,8 @@ $posts = [
   ]
 ];
 
-// ❌ Bug: No input validation or sanitization
-$postId = $_GET['id']; // Could be missing or non-numeric
+// Validate input
+$postId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : null;
 
 // ❌ Bug: No check for existence of ID in array
 $post = $posts[$postId]; 
