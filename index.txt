@@ -1,0 +1,5 @@
+we want to see what happens if we do below operations
+
+1.) 1/0
+2.) 99/0
+3.) 5/0
