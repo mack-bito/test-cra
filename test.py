@@ -2,20 +2,20 @@
 
 def buggy_factorial(n):
     if n == 0:
-        return 0  # ❌ Bug: should return 1 for factorial of 0
+        return 0  
     result = 1
     for i in range(1, n + 1):
         result *= i
-    return results  # ❌ Bug: typo in variable name
+    return results 
 
 
 def fixed_factorial(n):
     if n == 0:
-        return 1  # ✅ Correct base case
+        return 1  
     result = 1
     for i in range(1, n + 1):
         result *= i
-    return result  # ✅ Correct variable name
+    return result  
 
 
 def main():
