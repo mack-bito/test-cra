@@ -12,7 +12,7 @@ def register_user(username, password):
 def login_user(username, password):
     if username not in users:
         print("No such user exists")
-    elif users[username] = password:  # ❌ Bug: Assignment instead of comparison
+    elif users[username] = password: 
         print("Login successful")
     else:
         print("Incorrect password")
