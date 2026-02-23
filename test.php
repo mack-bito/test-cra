@@ -11,10 +11,13 @@ echo "Connected successfully!<br>";
 $user_id = $_GET['id'];
 $query = "SELECT * FROM users WHERE id = $user_id"; 
 
-$result = mysqli_query($conn, $query);
+ $result = mysqli_query($conn, $query);
+ if (!$result) {
+     die("Query failed: " . mysqli_error($conn));
+ }
 
-// Forgetting to check if query execution was successful
-$row = mysqli_fetch_assoc($result);
+ // Forgetting to check if query execution was successful
+ $row = mysqli_fetch_assoc($result);
 
 // Using undefined index (possible PHP notice)
 echo "Hello, " . $row['username'] . "!<br>";
