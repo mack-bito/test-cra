@@ -6,6 +6,11 @@ func main() {
     a := 10
     b := 0
 
-    result := a / b 
-    fmt.Println("Result:", result)
+    if b == 0 {
+        fmt.Println("Error: division by zero")
+        return
+    } else {
+        result := a / b
+        fmt.Println("Result:", result)
+    }
 }
