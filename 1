@@ -14,11 +14,14 @@ $posts = [
   ]
 ];
 
-// ❌ Bug: No input validation or sanitization
-$postId = $_GET['id']; // Could be missing or non-numeric
-
-// ❌ Bug: No check for existence of ID in array
-$post = $posts[$postId]; 
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die('Invalid post ID');
+}
+$postId = (int) $_GET['id'];
+if (!isset($posts[$postId])) {
+    die('Post not found');
+}
+$post = $posts[$postId];
 
 ?>
 <!DOCTYPE html>
