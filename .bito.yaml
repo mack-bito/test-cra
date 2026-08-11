@@ -1,4 +1,4 @@
-# ============================= IMPORTANT =============================
+#### ============================= IMPORTANT =============================
 # Rename this file to ".bito.yaml" and place it in the root of your repository's source branch.
 # This will override your review settings for this particular repository.
 # For more information, please visit: https://docs.bito.ai/ai-code-reviews-in-git/agent-settings/repo-level-settings
