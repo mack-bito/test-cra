@@ -14,11 +14,14 @@ $posts = [
   ]
 ];
 
-// Validate input
-$postId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : null;
-
-// ❌ Bug: No check for existence of ID in array
-$post = $posts[$postId]; 
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die('Invalid post ID');
+}
+$postId = (int) $_GET['id'];
+if (!isset($posts[$postId])) {
+    die('Post not found');
+}
+$post = $posts[$postId];
 
 ?>
 <!DOCTYPE html>
@@ -32,15 +35,15 @@ $post = $posts[$postId];
 <p><em>By <?php echo $post['author']; ?></em></p>
 
 <!-- ❌ Bug: Not escaping content, allows XSS -->
- <div>
-   <?php echo htmlspecialchars($post['content']); ?>
- </div>
+<div>
+  <?php echo $post['content']; ?>
+</div>
 
 <!-- ❌ Bug: Logic error, 'Back' link is broken -->
-<a href="index.phpp">← Back to Blog List</a>
+<a href="index.php">← Back to Blog List</a>
 
 <!-- ❌ Bug: Undefined function -->
-
+<?php displayComments(); ?>
 
 </body>
 </html>
